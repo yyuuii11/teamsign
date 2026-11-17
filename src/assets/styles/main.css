@@ -1,0 +1,179 @@
+/* ============================================
+   组迹 TeamSign · 全局设计系统
+   统一配色 / 字体层级 / 卡片样式 / 交互反馈
+   ============================================ */
+
+:root {
+  /* 品牌色 */
+  --brand-primary: #4f46e5;
+  --brand-primary-deep: #4338ca;
+  --brand-accent: #7c3aed;
+  --brand-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+
+  /* 功能色 */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-info: #3b82f6;
+
+  /* 文字色 */
+  --ink-900: #171a26;
+  --ink-700: #3f4457;
+  --ink-500: #6b7286;
+  --ink-300: #9ca3b5;
+
+  /* 背景与边框 */
+  --bg-page: #f6f7fb;
+  --surface: #ffffff;
+  --border-base: rgba(23, 26, 38, 0.08);
+
+  /* 圆角 */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  /* 阴影 */
+  --shadow-card: 0 2px 8px rgba(23, 26, 38, 0.04), 0 12px 32px rgba(23, 26, 38, 0.06);
+  --shadow-card-hover: 0 4px 12px rgba(79, 70, 229, 0.08), 0 18px 48px rgba(79, 70, 229, 0.14);
+  --shadow-pop: 0 24px 64px rgba(23, 26, 38, 0.18);
+
+  /* 字体 */
+  --font-family: 'PingFang SC', 'HarmonyOS Sans SC', 'Microsoft YaHei', 'Helvetica Neue',
+    Arial, sans-serif;
+
+  /* 头部高度（锚点滚动偏移用） */
+  --header-height: 72px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--ink-900);
+  background: var(--bg-page);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+svg {
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* ---- 通用布局容器 ---- */
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 96px 0;
+}
+
+.section--alt {
+  background: var(--surface);
+}
+
+/* ---- 区块标题层级 ---- */
+.section-head {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--brand-primary);
+  background: rgba(79, 70, 229, 0.08);
+  border-radius: var(--radius-pill);
+  padding: 6px 16px;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--ink-900);
+}
+
+.section-desc {
+  max-width: 560px;
+  margin: 12px auto 0;
+  font-size: 16px;
+  color: var(--ink-500);
+}
+
+/* ---- 通用卡片 ---- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border-base);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(79, 70, 229, 0.25);
+}
+
+/* ---- 响应式断点 ---- */
+@media (max-width: 960px) {
+  .section {
+    padding: 72px 0;
+  }
+
+  .section-title {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .section {
+    padding: 56px 0;
+  }
+
+  .section-head {
+    margin-bottom: 40px;
+  }
+
+  .section-title {
+    font-size: 23px;
+  }
+
+  .section-desc {
+    font-size: 15px;
+  }
+}
